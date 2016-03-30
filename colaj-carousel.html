@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Atelier Viorica Romascu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="semantic/dist/semantic.min.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="slick-1.5.9/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick-1.5.9/slick/slick-theme.css"/>
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+/*        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }*/
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .h1-primary {
+            font-family: 'Tangerine', serif;
+            font-size: 65px;
+            color: red;
+        }
+
+        .m-t-50 {
+            margin-top: 50px;
+        }
+
+        .m-b-50 {
+            margin-bottom: 50px;
+        }
+
+        .m-t-100 {
+            margin-top: 100px;
+        }
+
+        .m-b-100 {
+            margin-bottom: 100px;
+        }
+
+        /*.colaj-wrap {
+            position: absolute;
+            display: flex;
+            flex-flow: row wrap;
+            align-content: flex-start;
+            width:100%;
+        }
+        .tile-sml {
+            flex: 0 0 23%;
+            height: 0;
+            position: relative;
+            padding-bottom: 23%;
+            margin: 1%;
+        }
+        .tile-lrg {
+            flex: 0 0 23%;
+            height: 0;
+            position: relative;
+            padding-bottom: 46%;
+            margin: 1%;
+        }
+*/
+
+
+        /*.tile-sml {
+            height: 150px;
+        }
+        .tile-lrg {
+            height: 300px;
+        }*/
+
+        /*.square-sml {
+            width: 8.33%;
+        }
+
+        .square-lrg {
+            width: 16.66%;
+        }
+
+        .square-sml:after, .square-lrg:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+        .square-sml:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+        #a {
+            width:100px;
+            height:50px;
+        }
+*/
+        /*.square { 
+            position: relative;
+            width: 50vw;
+            height: 50vw;
+        }*/
+
+        .text-logo {
+            font-family: 'Tangerine', serif;
+            font-size: 48px;
+            text-shadow: 4px 4px 4px #aaa;
+        }
+        .text-logo-small {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    $(document).ready(function(){
+        console.log("latimea este: " + $('.square-sml').outerWidth());
+        $('.square-sml').outerHeight($('.square-sml').outerWidth());
+        $('.square-lrg').outerHeight($('.square-lrg').outerWidth());
+        $('.rec-vertical').outerHeight($('.rec-vertical').outerWidth()*2);
+        $('.rec-horizontal').outerHeight($('.square-sml').outerWidth());
+
+        //var text = '{"name":"John Johnson","street":"Oslo West 16","phone":"555 1234567"}';
+        var text = '{"v1":"PozeColaj/v1.jpg","v2":"PozeColaj/v2.jpg","v3":"PozeColaj/v3.jpg"}';
+        var obj = JSON.parse(text);
+
+        document.getElementById("demo").innerHTML =
+        obj.v1 + "<br>";
+
+        // $('.rec-vertical').html('<img src=' + obj.v1 + ' alt="aaa" width="100%" />');
+
+        // $('.rec-vertical').css('background-image', 'url(' + obj.v1 + ')');
+        $('.rec-vertical').css("background", "transparent url('" + obj.v1 + "') no-repeat right top");
+        $('.rec-vertical').css("background-size", "auto 100%");
+
+        var jsonContent = {
+            "vertical": [ "PozeColaj/v1.jpg", "PozeColaj/v2.jpg", "PozeColaj/v3.jpg", "PozeColaj/v4.jpg" ],
+            "horizontal": [ "PozeColaj/o1.jpg" ],
+            "square": [ "PozeColaj/p1.jpg", "PozeColaj/p2.jpg" ]
+        }
+
+        $('.rec-vertical').each(function() {
+            var random = jsonContent.vertical[Math.floor(Math.random() * jsonContent.vertical.length)];
+            console.log(random);
+            $(this).css("background", "transparent url('" + random + "') no-repeat right top");
+            $(this).css("background-size", "auto 100%");
+        });
+
+        $('.rec-horizontal').each(function() {
+            var random = jsonContent.horizontal[Math.floor(Math.random() * jsonContent.horizontal.length)];
+            console.log(random);
+            $(this).css("background", "transparent url('" + random + "') no-repeat right top");
+            $(this).css("background-size", "100% auto");
+        });
+
+        $('.square-sml').each(function() {
+            var random = jsonContent.square[Math.floor(Math.random() * jsonContent.square.length)];
+            console.log(random);
+            $(this).css("background", "transparent url('" + random + "') no-repeat right top");
+            $(this).css("background-size", "100% 100%");
+        });
+
+        $('.square-lrg').each(function() {
+            var random = jsonContent.square[Math.floor(Math.random() * jsonContent.square.length)];
+            console.log(random);
+            $(this).css("background", "transparent url('" + random + "') no-repeat right top");
+            $(this).css("background-size", "100% 100%");
+        });
+        
+
+    })
+</script>
+
+<div class="container-fluid colaj-wrap">
+     <div class="row">
+        <div class="col-xs-2">
+            <div class="row">
+                <!-- 2 mici vertical -->
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div id="a" class="col-xs-12 tile-sml square-sml" /*style="background-color:red;*/">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 tile-sml square-sml" style="background-color:pink;">
+                        </div>
+                    </div>
+                </div>
+                <!-- 1 verticala -->
+                <div class="col-xs-6 tile-lrg rec-vertical" style="background-color:yellow;">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-2">
+            <!-- 1 orizontala -->
+            <div class="row">
+                <div class="col-xs-12 tile-sml rec-horizontal" style="background-color:blue;">
+                </div>
+            </div>
+            <!-- 1 orizontala -->
+            <div class="row">
+                <div class="col-xs-12 tile-sml rec-horizontal" style="background-color:green;">
+                </div>
+            </div>
+        </div>
+
+        <!-- 1 mare -->
+        <div class="col-xs-2 tile-lrg square-lrg" style="background-color:pink;">
+        </div>
+
+        <div class="col-xs-2">
+            <!-- 2 mici orizontale -->
+            <div class="row">
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:red;">
+                </div>
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:yellow;">
+                </div>
+            </div>
+            <!-- 1 orizontala -->
+            <div class="row">
+                <div class="col-xs-12 tile-sml rec-horizontal" style="background-color:green;">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-2">
+            <div class="row">
+                <!-- 1 verticala -->
+                <div class="col-xs-6 tile-lrg rec-vertical" style="background-color:blue;">
+                </div>
+                <!-- 2 mici vertical -->
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div class="col-xs-12 tile-sml square-sml" style="background-color:red;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 tile-sml square-sml" style="background-color:pink;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1 mare -->
+        <div class="col-xs-2 tile-lrg square-lrg" style="background-color:yellow;">
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- 1 mare -->
+        <div class="col-xs-2 tile-lrg square-lrg" style="background-color:blue;">
+        </div>
+
+        <div class="col-xs-2">
+            <!-- 2 mici orizontale -->
+            <div class="row">
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:red;">
+                </div>
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:yellow;">
+                </div>
+            </div>
+            <!-- 2 mici orizontale -->
+            <div class="row">
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:pink;">
+                </div>
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:green;">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-2">
+            <div class="row">
+                <!-- 1 verticala -->
+                <div class="col-xs-6 tile-lrg rec-vertical" style="background-color:blue;">
+                </div>
+                <!-- 2 mici vertical -->
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div class="col-xs-12 tile-sml square-sml" style="background-color:red;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 tile-sml square-sml" style="background-color:yellow;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-2">
+            <!-- 1 orizontala -->
+            <div class="row">
+                <div class="col-xs-12 tile-sml rec-horizontal" style="background-color:blue;">
+                </div>
+            </div>
+            <!-- 2 mici orizontale -->
+            <div class="row">
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:pink;">
+                </div>
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:green;">
+                </div>
+            </div>
+        </div>
+
+        <!-- 1 mare -->
+        <div class="col-xs-2 tile-lrg square-lrg" style="background-color:red;">
+        </div>
+
+        <div class="col-xs-2">
+            <!-- 2 mici orizontale -->
+            <div class="row">
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:blue;">
+                </div>
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:pink;">
+                </div>
+            </div>
+            <!-- 2 mici orizontale -->
+            <div class="row">
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:yellow;">
+                </div>
+                <div class="col-xs-6 tile-sml square-sml" style="background-color:green;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
