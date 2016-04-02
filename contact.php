@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <title>Login</title>
+    <title>Contact</title>
     <?php include('includes.php'); ?>
 </head>
 
@@ -15,7 +15,7 @@
     <p class="turkuaz big-text-only-lrg m-b-20">Contactati-ne si va vom raspunde in maxim 2 zile lucratoare!</p>
     <div class="row">
       <div class="col-sm-5">
-        <p class="">Suntem receptivi la propuneri si sugestii de imbunatatire, deschisi catre colaborari si va raspundem cu drag la intrebari. Nu ezitati sa ne contactati!</p>
+        <p class="m-b-20">Suntem receptivi la propuneri si sugestii de imbunatatire, deschisi catre colaborari si va raspundem cu drag la intrebari. Nu ezitati sa ne contactati!</p>
         <p><span class="glyphicon glyphicon-map-marker"></span> Ghita Hagi 5, Bucuresti, Romania</p>
         <p><span class="glyphicon glyphicon-phone"></span> +40 740 878 933</p>
         <p><span class="glyphicon glyphicon-envelope"></span> contact@vr-artstudio.com</p>	   
