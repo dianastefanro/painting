@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand text-logo" href="index.html">
+      <a class="navbar-brand text-logo" href="index.php">
       	<span class="text-red">V</span>
       	<span class="text-orange">i</span>
       	<span class="text-yellow">o</span>
@@ -28,18 +28,18 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="index.html">Home</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
         <!-- <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cursuri <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="cursuri-pictura.html">Cursuri copii</a></li>
-            <li><a href="cursuri-pictura.html">Cursuri adulti</a></li>
+            <li><a href="cursuri-pictura.php">Cursuri copii</a></li>
+            <li><a href="cursuri-pictura.php">Cursuri adulti</a></li>
           </ul>
         </li> -->
-        <li><a href="cursuri-pictura.html">Cursuri</a></li>
-        <li><a href="galerie.html">Galerie</a></li>
-        <li><a href="shop.html">Magazin</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cursuri.php">Cursuri</a></li>
+        <li><a href="galerie.php">Galerie</a></li>
+        <li><a href="shop.php">Magazin</a></li>
+        <li><a href="contact.php">Contact</a></li>
         <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <?php if(!isset($_SESSION['login_user'])){ ?>
         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
