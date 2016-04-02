@@ -139,15 +139,17 @@
     </div>
 </footer>
 
+<!--
 <?php
+/*
 $servername = "localhost";
 $username = "root";
 $password = "root";
 $dbname = "PicturaDB";
 
-// Create connection
+//Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+//Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -169,6 +171,30 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+*/
+?>
+-->
+<?php
+   include("config.php");
+   
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      
+      $nume = mysqli_real_escape_string($db,$_POST['nume']);
+      $prenume = mysqli_real_escape_string($db,$_POST['prenume']); 
+      $adresa = mysqli_real_escape_string($db,$_POST['adresa']); 
+      $telefon = mysqli_real_escape_string($db,$_POST['telefon']); 
+      $email = mysqli_real_escape_string($db,$_POST['email']); 
+      $pwd = mysqli_real_escape_string($db,$_POST['pwd']); 
+      
+      $sql = "INSERT INTO Users (nume, prenume, adresa, telefon, email, parola)
+              VALUES ('$nume', '$prenume', '$adresa', '$telefon', '$email', '$pwd')";
+
+      if ($db->query($sql) === TRUE) {
+          echo "New record created successfully.";
+      } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+   }
 ?>
 
 </body>
