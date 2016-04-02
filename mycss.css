@@ -17,6 +17,7 @@ body, html {
 .h3-succes {
     font-family: 'Tangerine', serif;
     font-size: 50px;
+    /*color: rgb(0,134,152);*/
     color: green;
 }
 
@@ -142,6 +143,34 @@ body, html {
     border-color: rgba(0,0,0,0.2);
 }
 
+.text-red {
+    color: red;
+}
+
+.text-orange {
+    color: orange;
+}
+
+.text-yellow {
+    color: yellow;
+}
+
+.text-green {
+    color: green;
+}
+
+.text-blue {
+    color: blue;
+}
+
+.text-indigo {
+    color: indigo;
+}
+
+.text-violet {
+    color: violet;
+}
+
 .myFooter {
     border-top: 1px solid #e7e7e7;
 }
@@ -196,15 +225,6 @@ body, html {
     }       
 }
 
-@media screen and (max-width: 320px) {
-    .text-logo {
-        font-size: 30px;
-    }
-    .text-logo-small {
-        font-size: 14px;
-    }
-}
-
 @media screen and (max-width: 769px) {
     .h1-primary {
         font-size: 40px;
@@ -217,5 +237,17 @@ body, html {
     }
     .my-carousel img {
         max-height: 200px;
+    }
+    .text-logo {
+        font-size: 30px;
+    }
+    .text-logo-small {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .text-logo {
+        font-size: 25px;
     }
 }
