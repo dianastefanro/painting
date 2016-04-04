@@ -1,4 +1,5 @@
 <?php //include('session.php'); ?>
+
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -57,65 +58,93 @@
 </div>
 
 <div class="container m-t-100 m-b-50">
-  <div class="panel panel-default text-center shop-panel">
-    <div class="panel-body">
-      
-      <div class="btn-modal" data-toggle="modal" data-target="#myModal">
-        <img  class="thumb" src="Images/thumbnails/thumb-maci.jpg" alt="Maci">
-      </div>
 
-      <div>
-        <h4 class="turkuaz m-b-0">Maci pe malul marii</h4>
-        <p>Diana Stefan</p>
-      </div>
+<?php 
+    include("config.php"); 
+    $sql = "SELECT * FROM Produse INNER JOIN `cat-autor` ON Produse.id_autor=`cat-autor`.`id-autor` INNER JOIN `cat-tehnica` ON Produse.id_tehnica=`cat-tehnica`.`id-tehnica` INNER JOIN `cat-suport` ON Produse.id_suport=`cat-suport`.`id-suport`";
+    $result = mysqli_query($db,$sql);
+    //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    //$titlu = $row['titlu'];
+    //echo "$sql <br />"; 
+    // echo "$titlu <br />"; 
+     //$count = mysqli_num_rows($result);
+    //echo "$count <br />"; 
 
-      <div class="m-t-10">
-        <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Detalii</button>
-        <button type="button" class="btn btn-info">Adauga in cos</button> -->
-        <div class="btn-group">
-          <a href="#" class="btn btn-default">200 RON</a>
-          <a href="#" class="btn btn-pink"><i class="fa fa-shopping-cart"></i> Cumpara</a>
-        </div>
-      </div>
+    while($row = $result->fetch_assoc()) {
+    //echo "id: " . $row["id"] . " - Titlu: " . $row["titlu"]. " " . $row["pret"]. "<br>";
+    ?>       
+      <div class="panel panel-default text-center shop-panel">
+        <div class="panel-body">
+          
+          <div class="btn-modal" data-toggle="modal" data-target="#myModal">
+            <img  class="thumb" src=<?php echo '"' . $row["thumb-image"] . '"'?> alt="Maci">
+          </div>
 
-      <!-- Modal -->
-      <div class="modal fade shop-modal" id="myModal" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Detalii lucrare</h4>
+          <div>
+            <h4 class="turkuaz m-b-0"><?php echo $row["titlu"] ?></h4>
+            <p><?php echo $row["autor"] ?></p>
+          </div>
+
+          <div class="m-t-10">
+            <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Detalii</button>
+            <button type="button" class="btn btn-info">Adauga in cos</button> -->
+            <div class="btn-group">
+              <a href="#" class="btn btn-default"><?php echo $row["pret"] ?> RON</a>
+              <a href="#" class="btn btn-pink"><i class="fa fa-shopping-cart"></i> Cumpara</a>
             </div>
-            <div class="modal-body">
-              <div>
-                <img src="Images/maci.jpg" alt="Maci">
-              </div>
-              <hr>
-              <div class="row text-left product-info">
-                <div class="col-xs-6">
-                  <h4 class="turkuaz m-t-0">Maci pe malul marii</h4>
-                  <p><b>Autor:</b> Diana Stefan</p>
-                  <p><b>Categorie:</b> Peisaje, Flori</p>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade shop-modal" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Detalii lucrare</h4>
                 </div>
-                <div class="col-xs-6">
-                  <p><b>Tehnica:</b> tempera</p>
-                  <p><b>Suport:</b> hartie</p>
-                  <p><b>Dimensiune:</b> 29.7cm/42cm</p>
+                <div class="modal-body">
+                  <div>
+                    <img src="Images/maci.jpg" alt="Maci">
+                  </div>
+                  <hr>
+                  <div class="row text-left product-info">
+                    <div class="col-xs-6">
+                      <h4 class="turkuaz m-t-0"><?php echo $row["titlu"] ?></h4>
+                      <p><b>Autor:</b> <?php echo $row["autor"] ?></p>
+                      <?php
+                        $sql = "SELECT * FROM `cat-tema` INNER JOIN `produs-tema` ON `cat-tema`.`id-tema`=`produs-tema`.`id-tema` WHERE `produs-tema`.`id-produs`=" . $row["id"];
+                        $result_tema = mysqli_query($db,$sql);
+                        $teme = "";
+                        while($i = $result_tema->fetch_assoc()) {
+                          if ($teme != "") {
+                              $teme = $teme . ", ";
+                          }
+                          $teme = $teme . $i["tema"];
+                        }
+                      ?>
+                      <p><b>Categorie:</b> <?php echo $teme ?></p>
+                    </div>
+                    <div class="col-xs-6">
+                      <p><b>Tehnica:</b> <?php echo $row["tehnica"] ?></p>
+                      <p><b>Suport:</b> <?php echo $row["suport"] ?></p>
+                      <p><b>Dimensiune:</b> <?php echo $row["dimensiune"] ?></p>
+                    </div>
+                  </div>
                 </div>
+                <div class="modal-footer">
+                  <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                  <div class="btn-group">
+                    <a href="#" class="btn btn-default"><?php echo $row["pret"] ?> RON</a>
+                    <a href="#" class="btn btn-pink"><i class="fa fa-shopping-cart"></i> Cumpara</a>
+                  </div>
+                </div>            
               </div>
             </div>
-            <div class="modal-footer">
-              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-              <div class="btn-group">
-                <a href="#" class="btn btn-default">200 RON</a>
-                <a href="#" class="btn btn-pink"><i class="fa fa-shopping-cart"></i> Cumpara</a>
-              </div>
-            </div>            
           </div>
         </div>
       </div>
-    </div>
-  </div>
+  <?php 
+  } ?> 
 </div>
 
 <?php include('footer.php'); ?>
