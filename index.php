@@ -1,9 +1,11 @@
-<?php //include('session.php'); ?>
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <title>Viorica Romascu @art_studio</title>
-    <?php include('includes.php'); ?>
+    <title>Viorica Romascu Art Gallery</title>
+    
+    <?php
+    include('includes.php');
+    ?>
 </head>
 
 <body id="up">
@@ -21,11 +23,11 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="Images/pensule.jpg" alt="pensule" width="1200" height="700">
+        <img src="Images/pensule.jpg" alt="pensule" width="1200" height="700">    
       </div>
 
       <div class="item">
-        <img src="Images/pensule.jpg" alt="pensule" width="1200" height="700">     
+        <img src="Images/pensule.jpg" alt="pensule" width="1200" height="700">      
       </div>
     
       <div class="item">
@@ -35,11 +37,13 @@
 
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
+      <i class="fa fa-chevron-left glyphicon-chevron-left"></i>
       <span class="sr-only">Previous</span>
     </a>
     <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+      <i class="fa fa-chevron-right glyphicon-chevron-right"></i>
       <span class="sr-only">Next</span>
     </a>
 </div>
@@ -62,15 +66,15 @@
                 <img src="Images/VioricaRomascu.jpg" alt="Viorica Romascu" width="200" height="200" class="img-circle">
                 <h3 class="h3-succes m-t-20">Despre Viorica Romascu</h3>
                 <p class="big-text-only-lrg"><cite>Debutul meu in arta dateaza inca din copilarie, etapa din viata in care se nasc visele. Toti stim inca din copilarie ceea ce avem sa devenim. Putini insa sunt constanti in aceasta. Eu am reusit sa fiu constanta, ducandu-mi visul pana la capat.</cite></p>
-                <p class="read-more"><a href="/viorica-romascu" class="text-danger">Citeste mai mult →</a></p>
+                <p class="read-more"><a href="/viorica-romascu" class="text-danger">Citeste mai mult &#8594;</a></p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="text-center m-t-50 m-b-50">
                 <img src="Images/cursuri-pictura.jpg" alt="Cursuri pictura" width="200" height="200" class="img-circle">
                 <h3 class="h3-succes m-t-20">Cursuri de pictura</h3>
-                <p class="big-text-only-lrg">Va propunem o serie de cursuri de arte plastice : pictura, desen, istoria artelor, ateliere creative de confectionat papusi, modelat lut si multe altele. Cursurile se adresează tuturor categoriilor de varstă si sunt adaptate in functie de varsta si nivelul cursantilor.</p>
-                <p class="read-more"><a href="cursuri-pictura.html" class="text-danger">Citeste mai mult →</a></p>
+                <p class="big-text-only-lrg">Va propunem o serie de cursuri de arte plastice : pictura, desen, istoria artelor, ateliere creative de confectionat papusi, modelat lut si multe altele. Cursurile se adreseaz&#259; tuturor categoriilor de varst&#259; si sunt adaptate in functie de varsta si nivelul cursantilor.</p>
+                <p class="read-more"><a href="cursuri-pictura.html" class="text-danger">Citeste mai mult &#8594;</a></p>
             </div>
         </div>
         <div class="col-md-4">
@@ -78,7 +82,7 @@
                 <img src="Images/magazin.jpg" alt="Magazin" width="200" height="200" class="img-circle">
                 <h3 class="h3-succes m-t-20">Magazin online</h3>
                 <p class="big-text-only-lrg">Suntem mandrii sa va anuntam ca acum puteti achizitiona online lucrari ale cursantilor de la scoala de pictura Viorica Romascu, dar si lucrari ale fostilor cursanti, acum artisti consacrati si chiar lucrari ale pictoritei Viorica Romascu.</p>
-                <p class="read-more"><a href="/shop" class="text-danger">Citeste mai mult →</a></p>
+                <p class="read-more"><a href="/shop" class="text-danger">Citeste mai mult &#8594;</a></p>
             </div>
         </div>    
     </div>
@@ -87,4 +91,4 @@
 <?php include('footer.php'); ?>
 
 </body>
-</html>
+</html>   
