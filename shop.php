@@ -73,11 +73,11 @@
     while($row = $result->fetch_assoc()) {
     //echo "id: " . $row["id"] . " - Titlu: " . $row["titlu"]. " " . $row["pret"]. "<br>";
     ?>       
-      <div class="panel panel-default text-center shop-panel">
+      <div class="panel panel-default text-center shop-panel pull-left m-l-10">
         <div class="panel-body">
-          
-          <div class="btn-modal" data-toggle="modal" data-target="#myModal">
-            <img  class="thumb" src=<?php echo '"' . $row["thumb-image"] . '"'?> alt="Maci">
+
+          <div class="btn-modal" data-toggle="modal" data-target=<?php echo '"#myModal' . $row["id"] . '"'?> >
+            <img  class="thumb" src=<?php echo '"' . $row["thumb-image"] . '"'?> alt="Tablou - thumb">
           </div>
 
           <div>
@@ -95,7 +95,7 @@
           </div>
 
           <!-- Modal -->
-          <div class="modal fade shop-modal" id="myModal" role="dialog">
+          <div class="modal fade shop-modal" id=<?php echo '"myModal' . $row["id"] . '"'?> role="dialog">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
@@ -104,7 +104,7 @@
                 </div>
                 <div class="modal-body">
                   <div>
-                    <img src="Images/maci.jpg" alt="Maci">
+                    <img src=<?php echo '"' . $row["image"] . '"'?> alt="Tablou - detalii">
                   </div>
                   <hr>
                   <div class="row text-left product-info">
@@ -144,8 +144,18 @@
         </div>
       </div>
   <?php 
-  } ?> 
+  } 
+  mysqli_close($db);
+  ?> 
 </div>
+
+<?php
+    include("config.php");
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    }
+?>
 
 <?php include('footer.php'); ?>
 

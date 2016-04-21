@@ -69,6 +69,10 @@ body, html {
     margin-bottom: 100px;
 }
 
+.m-l-10 {
+    margin-left: 10px;
+}
+
 .text-logo {
     font-family: 'Tangerine', serif;
     font-size: 40px;

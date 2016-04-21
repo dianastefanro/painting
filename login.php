@@ -105,6 +105,7 @@
 <?php
       }
     }
+    mysqli_close($db);
 ?>
 
 </body>
