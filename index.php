@@ -63,7 +63,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="text-center m-t-50 m-b-50">
-                <img src="Images/VioricaRomascu.jpg" alt="Viorica Romascu" width="200" height="200" class="img-circle">
+                <img src="Images/viorica-romascu2.jpg" alt="Viorica Romascu" width="200" height="200" class="img-circle">
                 <h3 class="h3-succes m-t-20">Despre Viorica Romascu</h3>
                 <p class="big-text-only-lrg"><cite>Debutul meu in arta dateaza inca din copilarie, etapa din viata in care se nasc visele. Toti stim inca din copilarie ceea ce avem sa devenim. Putini insa sunt constanti in aceasta. Eu am reusit sa fiu constanta, ducandu-mi visul pana la capat.</cite></p>
                 <p class="read-more"><a href="/viorica-romascu" class="text-danger">Citeste mai mult &#8594;</a></p>
