@@ -57,6 +57,7 @@ function echoActiveClassIfRequestMatches($requestUri)
         <li <?=echoActiveClassIfRequestMatches("galerie")?>><a href="galerie.php">Galerie</a></li>
         <li <?=echoActiveClassIfRequestMatches("shop")?>><a href="shop.php">Magazin</a></li>
         <li <?=echoActiveClassIfRequestMatches("contact")?>><a href="contact.php">Contact</a></li>
+        <li <?=echoActiveClassIfRequestMatches("basket")?>><a href="basket.php"><i class="fa fa-shopping-cart"></i> Cosul meu</a></li>       
 <?php if(!isset($_SESSION['login_user'])){ ?>
         <!-- <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
         <li <?=echoActiveClassIfRequestMatches("signup")?>><a href="signup.php"><i class="fa fa-user fa-fw"></i> Sign Up</a></li>
