@@ -14,59 +14,67 @@
           $result = mysqli_query($db,$sql);
           $productByID = $result->fetch_assoc();
  
-          // if ($productByID["stare"] == 'rezervat' || $productByID["stare"] == 'vandut') {
-          //   header('Location: shop.php');
-          // }
-          
-          echo "$sql <br />";
-          $sql2 = "UPDATE Produse SET stare='rezervat' WHERE id=" . $_GET["id"];
-          $result2 = mysqli_query($db,$sql2);
-                
-          
-          echo $productByID["id"] . "<br />";
-          echo $productByID["titlu"] . "<br />";
-          echo $productByID["stare"] . "<br />";
-          echo $productByID["autor"] . "<br />";
+          if ($productByID["stare"] == 'rezervat' || $productByID["stare"] == 'vandut') {
+            header('Location: shop.php');
+          }
+          else {          
+            echo "$sql <br />";
+            $sql2 = "UPDATE Produse SET stare='rezervat' WHERE id=" . $_GET["id"];
+            $result2 = mysqli_query($db,$sql2);
+                  
+            
+            echo $productByID["id"] . "<br />";
+            echo $productByID["titlu"] . "<br />";
+            echo $productByID["stare"] . "<br />";
+            echo $productByID["autor"] . "<br />";
 
-          $itemArray = array($productByID["id"]=>array('titlu'=>$productByID["titlu"], 'id'=>$productByID["id"], 'autor'=>$productByID["autor"], 'dimensiune'=>$productByID["dimensiune"], 'thumb-image'=>$productByID["thumb-image"], 'stare'=>$productByID["stare"], 'autor'=>$productByID["autor"], 'pret'=>$productByID["pret"]));
+            $itemArray = array($productByID["id"]=>array('titlu'=>$productByID["titlu"], 'id'=>$productByID["id"], 'autor'=>$productByID["autor"], 'dimensiune'=>$productByID["dimensiune"], 'thumb-image'=>$productByID["thumb-image"], 'stare'=>$productByID["stare"], 'autor'=>$productByID["autor"], 'tehnica'=>$productByID["tehnica"], 'suport'=>$productByID["suport"], 'pret'=>$productByID["pret"]));
 
-          if(!empty($_SESSION["cart_item"])) {
-            if(in_array($productByCode["id"],$_SESSION["cart_item"])) {
-              foreach($_SESSION["cart_item"] as $k => $v) {
-                  if($productByCode["id"] == $k)
-                    $_SESSION["cart_item"][$k]["cantitate"] = $_POST["cantitate"];
+            if(!empty($_SESSION["cart_item"])) {
+              if(in_array($productByCode["id"],$_SESSION["cart_item"])) {
+                foreach($_SESSION["cart_item"] as $k => $v) {
+                    if($productByCode["id"] == $k)
+                      $_SESSION["cart_item"][$k]["cantitate"] = $_POST["cantitate"];
+                }
+              } else {
+                $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
               }
             } else {
-              $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+              $_SESSION["cart_item"] = $itemArray;
             }
-          } else {
-            $_SESSION["cart_item"] = $itemArray;
           }
-
-          //echo $_SESSION["cart_item"][0]["stare"] . "<br />";
       break;
       case "remove":
-        if(!empty($_SESSION["cart_item"])) {
-          foreach($_SESSION["cart_item"] as $k => $v) {
-              if($_GET["id"] == $k)
-                unset($_SESSION["cart_item"][$k]);        
-              if(empty($_SESSION["cart_item"]))
-                unset($_SESSION["cart_item"]);
-          }
-        }
-        $sql2 = "UPDATE Produse SET stare='NULL' WHERE id=" . $_GET["id"];
-        $result2 = mysqli_query($db,$sql2);
+        // if(!empty($_SESSION["cart_item"])) {
+        //   foreach($_SESSION["cart_item"] as $k => $v) {
+        //       $k = $k + 1;
+        //       if($_GET["id"] == $k) {
+        //         echo "id = " . $_GET["id"] . "<br />";
+        //         echo "k = " . $k . "<br />";
+        //         $sql = "UPDATE Produse SET stare='NULL' WHERE id=" . $_GET["id"];
+        //         $result = mysqli_query($db,$sql);
+        //         unset($_SESSION["cart_item"][$k]);        
+        //       }
+        //       if(empty($_SESSION["cart_item"]))
+        //         unset($_SESSION["cart_item"]);
+        //   }
+        // }
+        //unset($_SESSION["cart_item"][$_GET["id"]]);
+      echo 'sesion[id] = ' . $_SESSION["cart_item"][$_GET["id"]];
       break;
       case "empty":
         if(!empty($_SESSION["cart_item"])) {
           foreach($_SESSION["cart_item"] as $k => $v) {
+              $k = $k + 1;
               $sql = "UPDATE Produse SET stare='NULL' WHERE id=" . $k;
+              echo "sql empty: $sql";
               $result = mysqli_query($db,$sql);
               unset($_SESSION["cart_item"][$k]);        
               if(empty($_SESSION["cart_item"]))
                 unset($_SESSION["cart_item"]);
           }
         }
+        unset($_SESSION["cart_item"]);
       break;  
     }
   }
@@ -100,11 +108,11 @@
                 <div class="panel-body"> 
                   <div class="row"> 
                     <div class="col-sm-4">
-                      <img  class="thumb" src=<?php echo '"' . $item["thumb-image"] . '"'?> alt="Maci">
+                      <img  class="thumb" src=<?php echo '"' . $item["thumb-image"] . '"'?> alt=<?php echo '"' . $item["titlu"] . '"'?> />
                     </div>
 
                     <div class="col-sm-4">
-                      <p><b>Tehnica:</b> tempera</p>
+                      <p><b>Tehnica:</b> <?php echo $item["tehnica"]; ?></p>
                       <p><b>Suport:</b> hartie</p>
                       <p><b>Dimensiune:</b> <?php echo $item["dimensiune"]; ?></p>
                     </div>
