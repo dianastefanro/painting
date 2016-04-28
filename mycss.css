@@ -8,17 +8,49 @@ body, html {
     box-sizing: border-box;
 }
 
+
+p, div {
+    font-family: 'Neuton', serif;
+}
+
 .h1-primary {
-    font-family: 'Tangerine', serif;
+    /*font-family: 'Tangerine', serif;*/
+    font-family: 'Mr De Haviland', cursive;
     font-size: 65px;
-    color: red;
+    /*color: red;*/
+    color: #FF3B3F;
 }
 
 .h3-succes {
-    font-family: 'Tangerine', serif;
-    font-size: 50px;
-    /*color: rgb(0,134,152);*/
-    color: green;
+    /*font-family: 'Tangerine', serif;*/
+    /*font-family: 'Mr De Haviland', cursive;*/
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-style: italic;
+    /*color: #4CAF50;*/
+    color: #1B7B34;
+}
+
+/*logo*/
+.text-new {
+    font-family: 'Mr De Haviland', cursive;
+    color: #4CAF50;
+    /*color: rgb(14, 165, 111);*/
+    font-size: 3.5rem;
+    margin-left: 10px;
+}
+
+.section-important {
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    font-style: italic;
+}
+
+.logo-img {
+    /*margin-top: -5px;*/
+    margin-top: -14px;
 }
 
 .m-t-0 {
@@ -69,10 +101,14 @@ body, html {
     margin-bottom: 100px;
 }
 
+.top-50 {
+    top: 50%;
+}
+
 .text-logo {
     font-family: 'Tangerine', serif;
     font-size: 40px;
-    text-shadow: 2px 2px 2px #aaa;
+    /*text-shadow: 2px 2px 2px #aaa;*/
 }
 .text-logo-small {
     font-family: 'Arial', sans-serif;
@@ -180,6 +216,10 @@ body, html {
     margin-bottom: 3px;
 }
 
+.modal-body img {
+    width: 100%;
+}
+
 .my-carousel {
     max-height: 500px;
     /* menu height */
@@ -196,11 +236,14 @@ body, html {
 
 .shop-panel {
     width: 240px;
+    margin-right: 10px;
 }
 
 .btn-pink {
     background-color: #EF6ECD;
     border-color: #EF6ECD;
+    /*background-color: #4CAF50;
+    border-color: #4CAF50;*/
     color: white;
 }
 
@@ -242,12 +285,17 @@ body, html {
         font-size: 30px;
     }
     .text-logo-small {
-        font-size: 12px;
+        font-size: 10px;
+    }
+
+    /*logo*/
+    .text-new {
+        font-size: 2.2rem;
     }
 }
 
 @media screen and (max-width: 320px) {
     .text-logo {
-        font-size: 25px;
+        font-size: 22px;
     }
 }

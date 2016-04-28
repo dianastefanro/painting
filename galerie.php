@@ -55,7 +55,7 @@
 		        <img src="Images/thumbnails/thumb-maci.jpg" alt="Maci">
 		    </a>
 		    <a class="thumb" href="Images/abstract.jpg" title="Abstract" data-gallery>
-		        <img src="Images/thumbnails/thumb-abstract.jpg" alt="Maci">
+		        <img src="Images/thumbnails/thumb-abstract.jpg" alt="Tablou Abstract">
 		    </a>
 		    <a class="thumb" href="Images/caine.jpg" title="Caine" data-gallery>
 		        <img src="Images/thumbnails/thumb-caine.jpg" alt="Caine">
